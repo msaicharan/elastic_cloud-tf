@@ -1,0 +1,18 @@
+xpack:
+  security:
+    authc:
+      realms:
+        oidc:
+          oidc1: 
+            order: 2 
+            rp.client_id: "${client_id}" 
+            rp.response_type: "code"
+            rp.requested_scopes: ["openid", "profile", "email"]
+            rp.redirect_uri: "https://${deployment_name}.kb.${region}.aws.found.io:9243/api/security/oidc/callback" 
+            op.issuer: "${base_url}" 
+            op.authorization_endpoint: "${base_url}/authorize" 
+            op.token_endpoint: "${base_url}/token" 
+            op.userinfo_endpoint: "${base_url}/userinfo" 
+            op.jwkset_path: "${base_url}/jwks" 
+            claims.principal: sub
+            claims.groups: memberof

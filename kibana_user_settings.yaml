@@ -1,0 +1,7 @@
+xpack.security.authc.providers:
+  oidc.oidc1:
+    order: 0
+    realm: "oidc1"
+    description: "Log in with my SSO"
+xpack.security.session.lifespan: "1d"
+xpack.security.session.idleTimeout: "30m"
